@@ -1,0 +1,8 @@
+from django.conf.urls import url
+
+from . import views
+
+urlpatterns = [
+	url(r'^exercise1/$', views.index, name='index'),
+	url(r'^exercise1/test/$', views.info, name='info'),
+]
