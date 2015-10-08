@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'jquery',
+    'bootstrap3',
     'exercise1',
     'exercise2',
 )
@@ -80,11 +82,20 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'site_db',
-	'USER': 'dorka',
-	'PASSWORD': 'renton872',
-	'HOST': '127.0.0.1',
-	'PORT': '3306',
+        'USER': 'dorka',
+        'PASSWORD': 'renton872',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    },
+    'weather': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'weather',
+        'USER': 'dorka',
+        'PASSWORD': 'renton872',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
+
 }
 
 
