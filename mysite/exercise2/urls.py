@@ -2,7 +2,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.rawsql, name='rawsql'),
+    url(r'^$', views.test, name='test'),
     url(r'^orm/$', views.ormsql, name='ormsql'),
     url(r'^bootry/$', views.bootry, name='bootry'),
     url(r'^temp/$', views.temp_get, name='temp_get'),

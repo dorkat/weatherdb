@@ -1,0 +1,17 @@
+body {
+    background: white url("images/clouds3.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#country{
+    width:200px;
+    border:1px solid black;
+}
+
+#city{
+    width:200px;
+    border:1px solid blue;
+}

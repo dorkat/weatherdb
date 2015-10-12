@@ -6,7 +6,7 @@ from django.db import connection
 from django.template import loader
 
 
-def rawsql(request):
+def test(request):
     template = loader.get_template('exercise2/test.html')
     return HttpResponse(template.render())
 

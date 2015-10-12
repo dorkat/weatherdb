@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Django default" uuid="bc9ef4fd-9e82-40a1-aac4-6d66d67e89aa">
+      <user-name>dorka</user-name>
+      <user-password>dfd8dfcfdfc4dfdedfc5dfc4df92df9ddf98</user-password>
+      <schema-pattern>site_db.*</schema-pattern>
+      <default-schemas>site_db.*</default-schemas>
+    </data-source>
+    <data-source name="Django weather" uuid="7695a89b-8308-440a-ac03-443b7a5f280d">
+      <user-name>dorka</user-name>
+      <user-password>dfd8dfcfdfc4dfdedfc5dfc4df92df9ddf98</user-password>
+      <schema-pattern>weather.*</schema-pattern>
+      <default-schemas>weather.*</default-schemas>
+    </data-source>
+  </component>
+</project>

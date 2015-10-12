@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature stats</title>
+</head>
+<link rel="stylesheet" type="text/css" href="{%   static 'exercise2/background.css'%}"/>
+<body>
+<div class = "center"><u>Temperatue statistics for {{ country_name }}</u><br>
+id number: {{ count_id }}, code: {{ country_code }}:<br>
+The maximum temperature is {{ max_temp }} &#176C<br>
+The minimum temperature is {{ min_temp }} &#176C<br>
+The average temperature is {{ avg }} &#176C<br>
+The median is {{ median }} &#176C</div>
+</body>
+</html>
+

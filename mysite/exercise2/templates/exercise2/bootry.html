@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load bootstrap3 %}
+{% load static %}
+
+<html lng="en">
+<head>
+    <title>Bootstrap Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <script src="{% static 'bootstrap-3.3.5-dist/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>
+    <link href="{%   static 'exercise2/bootrycss.css'%}" rel="stylesheet" media="screen">
+    <script type="text/javascript" src={% static "exercise2/timestamp.js" %} ></script>
+
+</head>
+
+<body>
+<div class ="container">
+  <h1>City Temperature</h1>
+    <button id="time_button" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      {% bootstrap_icon "time" %} Time
+    </button>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">The time right now is:</h4>
+            </div>
+            <div class="modal-body">
+                <p id="date">this sould change</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+
+    <p>Add a city to the table:</p>
+    <form name="myform" >
+        <select id="country" name="country" size="1">
+            <option></option>
+        </select>
+        <select id="city" name = "city" size="1">
+        </select>
+    </form><br>
+    <button id="add_city_button" type="button" class="btn btn-default">Add City</button>
+    <button id="update_button" type="button" class="btn btn-default">Update City</button>
+
+  <table id="temp_table" class="table">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>City</th>
+        <th>Temperature [&#176C]</th>
+        <th>Humidity [%]</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+</body>
+</html>
