@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'exercise1',
     'exercise2',
+    'new_site',
 )
 
 MIDDLEWARE_CLASSES = (

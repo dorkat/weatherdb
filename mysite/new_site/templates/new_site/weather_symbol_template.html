@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load bootstrap3 %}
+{% load static %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap-theme.css' %}" rel="stylesheet" media="screen">
+    <script src="{% static 'bootstrap-3.3.5-dist/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>
+    <link href="{%   static 'new_site/css/weather-icons.css'%}" rel="stylesheet">
+    <script type="text/javascript" src={% static "new_site/weather_symbol.js" %} ></script>
+    <title></title>
+</head>
+<body>
+<p id="a">hello</p>
+<i id="symbol" class="wi wi-day-sunny" ></i>
+</body>
