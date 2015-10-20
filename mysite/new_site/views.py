@@ -20,3 +20,8 @@ def city_weather(request):
     winds = Cities.objects.using('weather').get(country_id__exact = country_id, city_name__exact=name).wind_speed
     weather = {'temp' : int(float(temperature) - 273.15), 'humidity' : int(humidity), 'clouds' : int(clouds), 'wind' : float(winds)}
     return JsonResponse(weather)
+
+
+def mao_temp(request):
+    template = loader.get_template('new_site/google_map_template.html')
+    return HttpResponse(template.render())

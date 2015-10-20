@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load bootstrap3 %}
+{% load static %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap-theme.css' %}" rel="stylesheet" media="screen">
+    <script src="{% static 'bootstrap-3.3.5-dist/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src={% static "new_site/map.js" %} ></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <title></title>
+</head>
+<body>
+
+<div id="googleMap" style="width:500px;height:380px;" ></div>
+
+
+</body>
