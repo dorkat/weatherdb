@@ -11,10 +11,12 @@ $(document).ready(function() {
     var city_weather = JSON.parse(request.responseText);
     chose_symbol(city_weather);
     console.log(city_weather.temp, city_weather.humidity, city_weather.clouds, city_weather.wind);
-    console.log("country list request done")
+    console.log("city weather request done")
 }
     };
-    request.open("GET", "http://192.168.200.128:8000/new_site/city_weather?name=Lapid&country=Israel", true);
+    var host = "http://" + String($(location).attr('host')) + "/new_site/city_weather?name=Lapid&country=Israel";
+    console.log(host);
+    request.open("GET", host, true);
     request.send(null);
 });
 
@@ -33,3 +35,8 @@ function chose_symbol(weather) {
         symbol.setAttribute("class", "wi wi-day-cloudy-windy")
     }
 }
+
+$(document).ready(function() {
+    var host = $(location).attr('host') + "/new_site/city_weather?name=Lapid&country=Israel";
+    alert(host)
+});

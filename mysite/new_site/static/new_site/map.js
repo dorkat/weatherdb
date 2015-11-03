@@ -3,46 +3,26 @@
  */
 
 $(document).ready(function(){
-    getLocation()
-});
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
+    var lat = geoplugin_latitude();
+    var long = geoplugin_longitude();
     var mapProp = {
-        center:new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
+        center:new google.maps.LatLng(lat,long),
         zoom:14,
         mapTypeId:google.maps.MapTypeId.ROADMAP
   };
-  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-
-  var marker = new google.maps.Marker({
-    position:new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
-    title: 'your city'
-  });
+    var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    var city = geoplugin_city();
+    var marker = new google.maps.Marker({
+        position:new google.maps.LatLng(lat,long),
+        title: city
+    });
 marker.setMap(map);
-}
+});
 
-function showError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
-            break;
-    }
-}
+$(document).ready(function() {
+    var country = geoplugin_countryName();
+    var city = geoplugin_city();
+    $("#name").append("<option value='1' selected>"+country+"</option>");
+    $("#name").append("<option value='2' selected>"+city+"</option>");
 
+});
