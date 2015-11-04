@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load bootstrap3 %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <script src="{% static 'bootstrap-3.3.5-dist/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src={% static "new_site/clock_template.js" %} ></script>
+    <link href="{%   static 'new_site/clock_template.css'%}" rel="stylesheet" media="screen">
+    <title></title>
+</head>
+<body>
+<div class="clock" >
+<div id="Date" ></div>
+  <ul>
+      <li id="hours"></li>
+      <li id="point">:</li>
+      <li id="min"></li>
+      <li id="point">:</li>
+      <li id="sec"></li>
+  </ul>
+</div>
+</body>
+</html>

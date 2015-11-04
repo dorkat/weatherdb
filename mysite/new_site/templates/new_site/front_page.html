@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load bootstrap3 %}
+{% load static %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <script src="{% static 'bootstrap-3.3.5-dist/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src={% static "new_site/front_page.js" %} ></script>
+    <link href="{%   static 'new_site/front_page.css'%}" rel="stylesheet" media="screen">
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <link href="{%   static 'new_site/css/weather-icons.css'%}" rel="stylesheet">
+    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <title></title>
+</head>
+<body class="main">
+<h2 align="center">Dor's Weather Page</h2>
+<div class="clearfix top">
+<form name="myform" >
+    Country:<input type="text" id="country_input" name="country_input" list="country">
+    <datalist id="country">
+    </datalist>
+    City:<input type="text" id="city_input" name="city_input" list="city">
+    <datalist id="city">
+    </datalist>
+</form>
+<button id="change_city_button" class="btn btn-primary btn-sm" type="button">
+    {% bootstrap_icon "refresh" %}
+</button>
+    <div class="clock" >
+        <div id="Date" ></div>
+          <ul>
+              <li id="hours"></li>
+              <li id="point">:</li>
+              <li id="min"></li>
+              <li id="point">:</li>
+              <li id="sec"></li>
+          </ul>
+    </div>
+</div>
+<div class="weather_report">
+    <div class="report_background"></div>
+    <i id="symbol" class="wi wi-day-sunny"></i>
+    <div class="city_info">
+        <h3 id="current_city"></h3>
+        <p id="report"> </p>
+    </div>
+</div>
+<div class="clearfix map-and-country">
+    <div id="googleMap" style="width:600px;height:460px;" class="side"></div>
+    <div>
+        <h3 id="country_info_header"></h3>
+        <p id="country_hottest"></p>
+        <p id="country_coldest"></p>
+        <p id="country_average"></p>
+    </div>
+</div>
+<br>
+<div class="links">
+    <div class="links_background"></div>
+    <div class="img_and_text">
+        <img src="../../static/new_site/images/Sat24_30Giu10.gif" class="link_image" id="sat24_link">
+        <a href="http://en.sat24.com/en" target="_blank">Sat24 - satellite images</a>
+    </div>
+    <div class="img_and_text">
+        <img src="../../static/new_site/images/wind_map.png" class="link_image" id="wind_link">
+        <a href="http://www.windfinder.com/" target="_blank">Windfinder - wind forecast</a>
+    </div>
+    <div class="img_and_text">
+        <img src="../../static/new_site/images/rain-radar.jpg" class="link_image" id="rain_link">
+        <a href="http://www.ims.gov.il/IMSEng/Tazpiot/RainRadar.htm" target="_blank">Rain radar for israel</a>
+    </div>
+</div>
+</body>

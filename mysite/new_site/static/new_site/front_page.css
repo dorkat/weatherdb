@@ -1,0 +1,170 @@
+h2 {
+    color: black;
+}
+
+.top > * {
+    float:left;
+    margin-right:10px;
+    color: black;
+}
+
+.map-and-country > * {
+    float:left;
+    margin-right:100px;
+    color: black;
+}
+
+.clearfix {
+    *zoom:1
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.side {
+    float: left;
+    margin-right:20px;
+}
+
+.weather_report {
+    display: block;
+    height: 150px;
+    width: 600px;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+}
+
+.city_info {
+    display: inline-block;
+    text-align: justify;
+    width: 500px;
+    position: relative;
+    color: black;
+}
+
+.report_background {
+    opacity: 0.8;
+    filter: alpha(opacity=60);
+    background: grey;
+    position: absolute; top: 0; left: 0; height: 100%;
+    width:100%;
+}
+
+#symbol {
+    font-size: 30px;
+    color: blue;
+    display: inline-block;
+    position: relative;
+    text-align: justify;
+}
+
+.clock {
+    width: 200px;
+    margin: auto;
+    float: right;
+    alignment: right;
+    background: url("images/clock-background.jpg") no-repeat center center fixed;
+    background-size:cover;
+}
+
+#Date {
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    color: black;
+}
+
+ul {
+    margin: 0 auto;
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+}
+
+ul li {
+    display: inline;
+    font-size: 2em;
+    text-align: center;
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+#point {
+    position: relative;
+    -moz-animation: mymove 1s ease infinite;
+    -webkit-animation: mymove 1s ease infinite;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@-webkit-keyframes mymove {
+    0% {opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+}
+
+50% {
+    opacity: 0;
+    text-shadow: none;
+}
+
+100% {
+    opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+}
+}
+
+.links {
+    display: block;
+    height: auto;
+    width: auto;
+    overflow: hidden;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.links_background {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    background: #CCC;
+    position: absolute; top: 0; left: 0; height: 100%;
+    width:100%;
+}
+
+.link_image {
+    width:100px;
+    height:100px;
+}
+
+.img_and_text {
+    background-color: #c4e3f3;
+    display: inline-block;
+    text-align: justify;
+    width: 100px;
+    margin-right: 10px;
+    box-shadow:0 0 30px #31708f;
+    position: relative;
+}
+
+.main {
+    margin-right: 12%;
+    margin-left: 12%;
+    margin-bottom: 50px;
+    background: url("images/Yellow-flowers.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.body_background {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    background: white;
+    position: relative;
+}
