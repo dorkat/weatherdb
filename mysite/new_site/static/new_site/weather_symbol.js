@@ -36,7 +36,3 @@ function chose_symbol(weather) {
     }
 }
 
-$(document).ready(function() {
-    var host = $(location).attr('host') + "/new_site/city_weather?name=Lapid&country=Israel";
-    alert(host)
-});
