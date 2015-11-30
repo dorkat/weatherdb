@@ -33,31 +33,6 @@ h2 {
     margin-right:20px;
 }
 
-.weather_report {
-    display: block;
-    height: 150px;
-    width: 600px;
-    overflow: hidden;
-    padding: 20px;
-    position: relative;
-}
-
-.city_info {
-    display: inline-block;
-    text-align: justify;
-    width: 500px;
-    position: relative;
-    color: black;
-}
-
-.report_background {
-    opacity: 0.8;
-    filter: alpha(opacity=60);
-    background: grey;
-    position: absolute; top: 0; left: 0; height: 100%;
-    width:100%;
-}
-
 #symbol {
     font-size: 30px;
     color: blue;
@@ -69,10 +44,7 @@ h2 {
 .clock {
     width: 200px;
     margin: auto;
-    float: right;
-    alignment: right;
-    background: url("images/clock-background.jpg") no-repeat center center fixed;
-    background-size:cover;
+    alignment: center;
 }
 
 #Date {
@@ -105,22 +77,6 @@ ul li {
     padding-right: 10px;
 }
 
-@-webkit-keyframes mymove {
-    0% {opacity: 1.0;
-    text-shadow: 0 0 20px #00c6ff;
-}
-
-50% {
-    opacity: 0;
-    text-shadow: none;
-}
-
-100% {
-    opacity: 1.0;
-    text-shadow: 0 0 20px #00c6ff;
-}
-}
-
 .links {
     display: block;
     height: auto;
@@ -134,7 +90,7 @@ ul li {
 .links_background {
     opacity: 0.6;
     filter: alpha(opacity=60);
-    background: #CCC;
+    background: white;
     position: absolute; top: 0; left: 0; height: 100%;
     width:100%;
 }
@@ -155,15 +111,9 @@ ul li {
 }
 
 .main {
-    margin-right: 12%;
-    margin-left: 12%;
+    margin-right: 10%;
+    margin-left: 10%;
     background-color: white;
-}
-
-body {
-    background: url("images/autumn-leaf.jpg") no-repeat center center fixed;
-	margin: 0;
-	padding: 0;
 }
 
 h2 {

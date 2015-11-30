@@ -11,6 +11,9 @@ $(document).ready(function(){
     display_info(geoplugin_countryName(),geoplugin_city());
     display_on_map(geoplugin_latitude(),geoplugin_longitude());
     geocoder = new google.maps.Geocoder();
+    document.getElementById("country_input").value = geoplugin_countryName();
+    document.getElementById("city_input").value = geoplugin_city();
+    city_list();
 });
 
 function display_on_map(lat, long){
@@ -52,7 +55,11 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     document.getElementById("country_input").onchange = function () {
-            document.getElementById("city_input").value = '';
+       city_list();
+    };
+});
+
+function city_list(){
             if (document.getElementById("country").value == "") {city.options[city.options.length] = new Option("", "", false, false)
             }
             else {
@@ -78,48 +85,62 @@ $(document).ready(function() {
                 request.open("GET", url, true);
                 request.send(null);
             }
-    };
-});
+}
 
 function display_info(country, city) {
-    $("#current_city").text(city+":");
-    var request = new XMLHttpRequest;
-    request.onreadystatechange = function () {
-        var DONE = this.DONE || 4;
-        if (this.readyState === DONE){
-            console.log(city + " weather request ready");
-            var city_weather = JSON.parse(request.responseText);
-            chose_symbol(city_weather);
-            console.log(city_weather.temp, city_weather.humidity, city_weather.clouds, city_weather.wind);
-            console.log(city + " weather request done");
-            var weather_report = "temperature: " + city_weather.temp + "\xB0C humidity: " + city_weather.humidity +"%" +
-                " cloud coverage: " + city_weather.clouds + "%" + " wind speed: " + city_weather.wind + "m/s";
-            $("#report").text(weather_report);
-        }
-    };
-    var url = host + "/new_site/city_weather?name="+ city +"&country="  +country;
-    request.open("GET", url, true);
-    request.send(null);
+    if (city) {
+        $("#current_city").text(city + ":");
+        var request = new XMLHttpRequest;
+        request.onreadystatechange = function () {
+            var DONE = this.DONE || 4;
+            if (this.readyState === DONE) {
+                console.log(city + " weather request ready");
+                var city_weather = JSON.parse(request.responseText);
+                chose_symbol(city_weather);
+                console.log(city + " weather request done");
+                $("#city_temp").text("temperature: " + city_weather.temp + "\xB0C");
+                $("#city_humidity").text("humidity: " + city_weather.humidity + "%");
+                $("#city_clouds").text("cloud coverage: " + city_weather.clouds + "%");
+                $("#city_wind").text("wind speed: " + city_weather.wind + "m/s");
+            }
+        };
+        var url = host + "/new_site/city_weather?name=" + city + "&country=" + country;
+        request.open("GET", url, true);
+        request.send(null);
+    }
+    else {
+        $("#city_temp").text("unable to find city, please choose from the list");
+        $("#city_humidity").text("");
+        $("#city_clouds").text("");
+        $("#city_wind").text("");
+    }
 
     var second_request = new XMLHttpRequest;
-    second_request.onreadystatechange = function () {
-        var DONE = this.DONE || 4;
-        if (this.readyState === DONE){
-            console.log(country + " info request ready");
-            var country_stats = JSON.parse(second_request.responseText);
-            console.log(country_stats.hottest, country_stats.coldest);
-            console.log(country + " info request done")
-            var info = "hottest city: " + country_stats.hottest + " temp: " + country_stats.hottest_temp;
-            $("#country_info_header").text("Some information about " + country);
-            $("#country_hottest").text("The hottest city is "+country_stats.hottest+ " at "+ country_stats.hottest_temp + "\xB0C");
-            $("#country_coldest").text("The coldest city is "+country_stats.coldest+ " at "+ country_stats.coldest_temp + "\xB0C");
-            $("#country_average").text("The average temperature is "+country_stats.average_temp + "\xB0C");
-        }
-    };
-    var second_url = host + "/new_site/country_info?name="+country;
-    second_request.open("GET", second_url, true);
-    second_request.send(null);
-};
+    if (country) {
+        second_request.onreadystatechange = function () {
+            var DONE = this.DONE || 4;
+            if (this.readyState === DONE) {
+                console.log(country + " info request ready");
+                var country_stats = JSON.parse(second_request.responseText);
+                console.log(country + " info request done");
+                var info = "hottest city: " + country_stats.hottest + " temp: " + country_stats.hottest_temp;
+                $("#country_info_header").text("Some information about " + country);
+                $("#country_hottest").text("The hottest city is " + country_stats.hottest + " at " + country_stats.hottest_temp + "\xB0C");
+                $("#country_coldest").text("The coldest city is " + country_stats.coldest + " at " + country_stats.coldest_temp + "\xB0C");
+                $("#country_average").text("The average temperature is " + country_stats.average_temp + "\xB0C");
+            }
+        };
+        var second_url = host + "/new_site/country_info?name=" + country;
+        second_request.open("GET", second_url, true);
+        second_request.send(null);
+    }
+    else {
+        $("#country_info_header").text("unable to find country, please choose from the list");
+        $("#country_hottest").text("");
+        $("#country_coldest").text("");
+        $("#country_average").text("");
+    }
+}
 
 function chose_symbol(weather) {
     var symbol = document.getElementById("symbol");
@@ -135,7 +156,7 @@ function chose_symbol(weather) {
     if (weather.clouds > 40 && weather.temp > 25 && weather.wind > 3) {
         symbol.setAttribute("class", "wi wi-day-cloudy-windy")
     }
-};
+}
 
 function center_map(country, city) {
     var address = city + ',' + country;
@@ -203,4 +224,33 @@ $(document).ready(function(){
    $("#rain_link").click(function(){
        window.open("http://www.ims.gov.il/IMSEng/Tazpiot/RainRadar.htm");
    });
+});
+
+$(document).ready(function(){
+    map.addListener('click', function(event) {
+        var latitude = event.latLng.lat();
+        var longitude = event.latLng.lng();
+        console.log( latitude + ', ' + longitude );
+        try {
+            var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude;
+            var request = new XMLHttpRequest;
+            request.onreadystatechange = function () {
+                var DONE = this.DONE || 4;
+                if (this.readyState === DONE) {
+                    var result = JSON.parse(request.responseText);
+                    var city = result["results"][1]["address_components"][1]["long_name"];
+                    var country = result["results"][1]["address_components"][1]["long_name"];
+                    console.log(city);
+                    console.log(country);
+                    display_info(country, city);
+                    display_on_map(latitude, longitude);
+                }
+            };
+            request.open("GET", url, true);
+            request.send(null);
+        }
+        catch(err) {
+            console.log("no city")
+        }
+    });
 });
